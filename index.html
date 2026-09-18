@@ -1,23 +1,737 @@
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Pagina publicada com GitHub Pages">
-    <title>GitHub Pages</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <main class="container">
-      <p class="eyebrow">github pages</p>
-      <h1>Um lugar simples para publicar suas ideias.</h1>
-      <p class="intro">
-        Esta pagina esta pronta para ser personalizada e publicada diretamente
-        a partir deste repositorio.
-      </p>
-      <a class="button" href="https://docs.github.com/pt/pages" target="_blank" rel="noreferrer">
-        Conheca o GitHub Pages
-      </a>
-    </main>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rafael Maeda — Full-Stack / Backend Developer focused on PHP, Laravel, Symfony, APIs, reporting systems and business software." />
+  <meta name="theme-color" content="#0b1020" />
+  <title>Rafael Maeda | Full-Stack Developer</title>
+
+  <style>
+    :root {
+      --bg: #08101f;
+      --bg-soft: #0d1729;
+      --panel: rgba(255,255,255,.055);
+      --panel-strong: rgba(255,255,255,.085);
+      --text: #edf3ff;
+      --muted: #aab7cd;
+      --line: rgba(255,255,255,.10);
+      --primary: #70a7ff;
+      --secondary: #6ee7c7;
+      --shadow: 0 20px 50px rgba(0,0,0,.25);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(112,167,255,.14), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(110,231,199,.10), transparent 22%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: rgba(8,16,31,.74);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -.03em;
+      font-size: 1.05rem;
+    }
+
+    .brand span { color: var(--secondary); }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: 84px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 999px;
+      padding: 8px 13px;
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 22px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 0 0 0 6px rgba(110,231,199,.09);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.4rem);
+      line-height: .98;
+      margin: 0 0 24px;
+      letter-spacing: -.065em;
+      max-width: 850px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.8vw, 1.24rem);
+      max-width: 760px;
+      margin: 0 0 32px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 19px;
+      border-radius: 13px;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      color: #07111d;
+      background: linear-gradient(135deg, var(--secondary), #90f4db);
+      border-color: transparent;
+    }
+
+    .btn-secondary { background: var(--panel); }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .terminal-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .terminal-top {
+      display: flex;
+      gap: 7px;
+      padding: 15px 17px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.025);
+    }
+
+    .terminal-top i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.22);
+    }
+
+    .terminal-body {
+      padding: 24px;
+      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+      font-size: .92rem;
+      color: #d8e3f6;
+    }
+
+    .terminal-body .muted { color: #72829f; }
+    .terminal-body .green { color: var(--secondary); }
+    .terminal-body .blue { color: var(--primary); }
+
+    section { padding: 92px 0; }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 38px;
+    }
+
+    .section-kicker {
+      color: var(--secondary);
+      text-transform: uppercase;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: -.045em;
+      line-height: 1.05;
+      margin: 0 0 15px;
+    }
+
+    .section-head p,
+    .muted-text { color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      background: var(--panel-strong);
+      border-color: rgba(112,167,255,.25);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      font-size: .82rem;
+      color: #cbd6e8;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-num {
+      color: #6f7d96;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+    }
+
+    .project-card h3 {
+      font-size: 1.45rem;
+      letter-spacing: -.025em;
+      margin: 12px 0 10px;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 28px;
+    }
+
+    .skill-group {
+      padding: 23px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .skill-group:first-child { padding-top: 0; }
+    .skill-group:last-child { border-bottom: 0; }
+
+    .skill-group strong {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .timeline {
+      border-left: 1px solid var(--line);
+      padding-left: 26px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 32px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -32px;
+      top: 7px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 6px rgba(112,167,255,.09);
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 7px;
+      font-size: 1.1rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-box {
+      text-align: center;
+      padding: 58px 24px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top, rgba(110,231,199,.09), transparent 38%),
+        var(--panel);
+      border-radius: 30px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 660px;
+      margin: 16px auto 28px;
+    }
+
+    footer {
+      padding: 30px 0 44px;
+      color: #7f8da5;
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .skills-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 64px;
+      }
+
+      .terminal-card {
+        max-width: 620px;
+      }
+
+      .grid { grid-template-columns: 1fr 1fr; }
+      .project-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 650px) {
+      .nav-links { display: none; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(3rem, 16vw, 4.7rem); }
+      section { padding: 72px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Rafael<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span>
+            Full-Stack / Backend Developer
+          </div>
+
+          <h1>
+            I build <span class="gradient">business software</span>
+            that solves real problems.
+          </h1>
+
+          <p>
+            PHP developer focused on backend systems, APIs, reporting, automation,
+            dealership platforms and practical web applications. Experienced with
+            Laravel, Symfony, MySQL/MariaDB and modern JavaScript tooling.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#work">View selected work</a>
+            <a class="btn btn-secondary" href="https://github.com/rhmaeda" target="_blank" rel="noopener">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <aside class="terminal-card" aria-label="Developer profile">
+          <div class="terminal-top">
+            <i></i><i></i><i></i>
+          </div>
+          <div class="terminal-body">
+            <div><span class="muted">$</span> whoami</div>
+            <br>
+            <div><span class="blue">name</span>: Rafael Maeda</div>
+            <div><span class="blue">role</span>: Full-Stack / Backend Developer</div>
+            <div><span class="blue">focus</span>: PHP, Laravel, Symfony, APIs</div>
+            <div><span class="blue">database</span>: MySQL / MariaDB</div>
+            <div><span class="blue">frontend</span>: JavaScript, jQuery, Bootstrap, Vue</div>
+            <div><span class="blue">platforms</span>: Linux, Windows, IIS, Plesk, VPS</div>
+            <br>
+            <div class="green">status: building useful things ✓</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">About</div>
+          <h2>Practical engineering with a strong business focus.</h2>
+          <p>
+            I work across backend development, internal platforms, data-heavy reporting,
+            infrastructure and workflow automation. I enjoy translating complex business
+            rules into reliable, maintainable software.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Backend development</h3>
+            <p>
+              Server-side applications, REST APIs, integrations, authentication,
+              business logic and database-driven systems.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Business systems</h3>
+            <p>
+              Experience with dealership workflows, job cards, stock, sales,
+              parts, invoicing, workshop operations and reporting.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Automation & infrastructure</h3>
+            <p>
+              VPS deployments, Linux scripting, scheduled tasks, Windows Server,
+              IIS, Plesk, Docker and self-hosted tooling.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Selected work</div>
+          <h2>Projects and systems I have worked on.</h2>
+          <p>
+            A selection of the kinds of problems I solve: internal business platforms,
+            reporting, automation, browser tooling and infrastructure projects.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="card project-card">
+            <div>
+              <div class="project-num">01 / DEALER MANAGEMENT</div>
+              <h3>Dealership management platform</h3>
+              <p>
+                Development across stock management, vehicle sales, job cards,
+                workshop scheduling, parts, invoicing, user permissions and operational workflows.
+              </p>
+            </div>
+            <div class="tag-list">
+              <span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">jQuery</span>
+              <span class="tag">Business Logic</span>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div>
+              <div class="project-num">02 / REPORTING</div>
+              <h3>Executive reporting & Excel exports</h3>
+              <p>
+                Built reporting features involving workshop performance, technician hours,
+                costs, sales data, operational KPIs and structured Excel exports.
+              </p>
+            </div>
+            <div class="tag-list">
+              <span class="tag">PhpSpreadsheet</span>
+              <span class="tag">SQL</span>
+              <span class="tag">KPIs</span>
+              <span class="tag">Excel</span>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div>
+              <div class="project-num">03 / BROWSER EXTENSION</div>
+              <h3>YouTube Fresh Home</h3>
+              <p>
+                Chrome extension designed to improve the YouTube home feed by tracking
+                previously seen recommendations and helping surface fresh videos.
+              </p>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Chrome Extension</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Browser APIs</span>
+              <span class="tag">UX</span>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div>
+              <div class="project-num">04 / DEVICE MANAGEMENT</div>
+              <h3>Android kiosk & MDM deployment</h3>
+              <p>
+                Worked on managed Android tablet deployments including kiosk mode,
+                application restrictions, web access control and self-hosted device-management tooling.
+              </p>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Android</span>
+              <span class="tag">MDM</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Self-hosting</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container skills-layout">
+        <div class="section-head">
+          <div class="section-kicker">Skills</div>
+          <h2>Technologies I use.</h2>
+          <p>
+            I prefer tools that are reliable, maintainable and appropriate for the
+            problem rather than chasing complexity for its own sake.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="skill-group">
+            <strong>Backend</strong>
+            <div class="tag-list">
+              <span class="tag">PHP 8+</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">Symfony</span>
+              <span class="tag">Laminas / Zend</span>
+              <span class="tag">CodeIgniter</span>
+              <span class="tag">Yii2</span>
+              <span class="tag">REST APIs</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <strong>Databases & data</strong>
+            <div class="tag-list">
+              <span class="tag">MySQL</span>
+              <span class="tag">MariaDB</span>
+              <span class="tag">SQL</span>
+              <span class="tag">PhpSpreadsheet</span>
+              <span class="tag">CSV / Excel processing</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <strong>Frontend</strong>
+            <div class="tag-list">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">jQuery</span>
+              <span class="tag">Bootstrap</span>
+              <span class="tag">Vue</span>
+              <span class="tag">Chart.js</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <strong>Infrastructure & tools</strong>
+            <div class="tag-list">
+              <span class="tag">Git</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Windows Server</span>
+              <span class="tag">IIS</span>
+              <span class="tag">Plesk</span>
+              <span class="tag">Docker</span>
+              <span class="tag">VPS</span>
+              <span class="tag">Nginx / Apache</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Experience</div>
+          <h2>How I approach development.</h2>
+          <p>
+            My work is strongly oriented around production systems, real users,
+            operational constraints and measurable business outcomes.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Full-stack development</h3>
+            <p>
+              Building and maintaining PHP applications across backend logic,
+              database design, interfaces, reports and third-party integrations.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Complex business rules</h3>
+            <p>
+              Implementing workflows involving sales approval, workshop efficiency,
+              technician time, stock costing, VAT, parts and operational reporting.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Problem solving & debugging</h3>
+            <p>
+              Diagnosing production issues across PHP, SQL, hosting, browsers,
+              Windows, Linux, networking and deployment environments.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Continuous improvement</h3>
+            <p>
+              Improving systems through better automation, safer workflows,
+              clearer interfaces and more useful reporting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div class="section-kicker">Contact</div>
+          <h2>Let’s build something useful.</h2>
+          <p>
+            I’m interested in backend, full-stack and business software projects,
+            especially where there is a real operational problem to solve.
+          </p>
+          <div class="actions" style="justify-content:center">
+            <a class="btn btn-primary" href="https://github.com/rhmaeda" target="_blank" rel="noopener">
+              View GitHub
+            </a>
+            <a class="btn btn-secondary" href="mailto:maedajr@pm.me">
+              Email me
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Rafael Maeda. Built with HTML, CSS and JavaScript.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
