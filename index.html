@@ -3,63 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rafael Maeda — Full-Stack / Backend Developer focused on PHP, Laravel, Symfony, APIs, reporting systems and business software." />
-  <meta name="theme-color" content="#0b1020" />
-  <title>Rafael Maeda | Full-Stack Developer</title>
+
+  <title>Rafael Maeda — PHP Full-Stack / Backend Developer</title>
+  <meta
+    name="description"
+    content="Rafael Maeda — PHP Full-Stack / Backend Developer focused on business systems, APIs, integrations, reporting and practical automation."
+  />
+  <meta name="theme-color" content="#f4f6f8" />
+  <meta property="og:title" content="Rafael Maeda — PHP Full-Stack / Backend Developer" />
+  <meta
+    property="og:description"
+    content="Business software, backend systems, APIs, reporting, integrations and automation."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rhmaeda.dev" />
 
   <style>
     :root {
-      --bg: #08101f;
-      --bg-soft: #0d1729;
-      --panel: rgba(255,255,255,.055);
-      --panel-strong: rgba(255,255,255,.085);
-      --text: #edf3ff;
-      --muted: #aab7cd;
-      --line: rgba(255,255,255,.10);
-      --primary: #70a7ff;
-      --secondary: #6ee7c7;
-      --shadow: 0 20px 50px rgba(0,0,0,.25);
+      --bg: #f4f6f8;
+      --surface: #ffffff;
+      --surface-soft: #edf1f4;
+      --ink: #15191f;
+      --muted: #66717e;
+      --line: #dce2e8;
+      --accent: #1668e8;
+      --accent-2: #19a974;
+      --dark: #0f1720;
+      --dark-soft: #192431;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(21, 25, 31, 0.08);
       --radius: 22px;
       --max: 1180px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 96px;
     }
 
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      background: var(--bg);
+      color: var(--ink);
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(112,167,255,.14), transparent 28%),
-        radial-gradient(circle at 85% 15%, rgba(110,231,199,.10), transparent 22%),
-        var(--bg);
-      color: var(--text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
 
     .container {
-      width: min(var(--max), calc(100% - 36px));
-      margin: 0 auto;
+      width: min(var(--max), calc(100% - 40px));
+      margin-inline: auto;
     }
 
+    /* NAV */
     .nav {
       position: sticky;
       top: 0;
-      z-index: 30;
-      backdrop-filter: blur(18px);
-      background: rgba(8,16,31,.74);
-      border-bottom: 1px solid var(--line);
+      z-index: 50;
+      border-bottom: 1px solid rgba(220, 226, 232, 0.9);
+      background: rgba(244, 246, 248, 0.88);
+      backdrop-filter: blur(16px);
     }
 
     .nav-inner {
-      min-height: 72px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -67,656 +89,1528 @@
     }
 
     .brand {
-      font-weight: 800;
-      letter-spacing: -.03em;
-      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 850;
+      letter-spacing: -0.03em;
     }
 
-    .brand span { color: var(--secondary); }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--dark);
+      color: #fff;
+      font-size: 0.88rem;
+      letter-spacing: -0.06em;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 650;
+      letter-spacing: 0;
+      margin-top: -3px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 22px;
-      color: var(--muted);
-      font-size: .94rem;
+      color: #47515c;
+      font-size: 0.91rem;
+      font-weight: 650;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
 
-    .hero {
-      min-height: calc(100vh - 72px);
-      display: grid;
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .lang-switch {
+      display: flex;
       align-items: center;
-      padding: 84px 0 72px;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 750;
+    }
+
+    .lang-switch button {
+      appearance: none;
+      border: 0;
+      background: none;
+      padding: 4px;
+      cursor: pointer;
+      color: inherit;
+      font-weight: 800;
+    }
+
+    .lang-switch button.active {
+      color: var(--ink);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: var(--surface);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: inset 0 0 0 1px var(--line);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 96px 0 64px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 56px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+      gap: 62px;
       align-items: center;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      border: 1px solid var(--line);
-      background: var(--panel);
-      border-radius: 999px;
-      padding: 8px 13px;
-      color: var(--muted);
-      font-size: .9rem;
-      margin-bottom: 22px;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--secondary);
-      box-shadow: 0 0 0 6px rgba(110,231,199,.09);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 850;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: clamp(3rem, 7vw, 6.4rem);
-      line-height: .98;
-      margin: 0 0 24px;
-      letter-spacing: -.065em;
-      max-width: 850px;
+      max-width: 880px;
+      margin: 0;
+      font-size: clamp(3.25rem, 7vw, 6.5rem);
+      line-height: 0.96;
+      letter-spacing: -0.065em;
+      font-weight: 850;
     }
 
-    .gradient {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
+    .hero-copy {
+      max-width: 780px;
+      margin: 28px 0 0;
       color: var(--muted);
-      font-size: clamp(1.05rem, 1.8vw, 1.24rem);
-      max-width: 760px;
-      margin: 0 0 32px;
+      font-size: clamp(1.05rem, 1.45vw, 1.22rem);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 26px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.7);
+      color: #39434e;
+      font-size: 0.82rem;
+      font-weight: 680;
     }
 
     .actions {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
     }
 
     .btn {
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 0 19px;
+      gap: 9px;
+      padding: 0 18px;
       border-radius: 13px;
-      font-weight: 700;
-      border: 1px solid var(--line);
-      transition: .2s ease;
+      border: 1px solid transparent;
+      font-weight: 780;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
     .btn-primary {
-      color: #07111d;
-      background: linear-gradient(135deg, var(--secondary), #90f4db);
-      border-color: transparent;
+      background: var(--dark);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(15,23,32,.15);
     }
 
-    .btn-secondary { background: var(--panel); }
+    .btn-secondary {
+      border-color: var(--line);
+      background: var(--surface);
+    }
 
-    .btn:hover { transform: translateY(-2px); }
+    .hero-visual {
+      min-height: 470px;
+      display: grid;
+      align-items: center;
+    }
 
-    .terminal-card {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
-      border-radius: 24px;
-      box-shadow: var(--shadow);
+    .system-card {
+      position: relative;
       overflow: hidden;
+      border-radius: 28px;
+      padding: 28px;
+      background: var(--dark);
+      color: #fff;
+      box-shadow: 0 30px 70px rgba(15, 23, 32, 0.2);
     }
 
-    .terminal-top {
-      display: flex;
-      gap: 7px;
-      padding: 15px 17px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.025);
-    }
-
-    .terminal-top i {
-      width: 10px;
-      height: 10px;
+    .system-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
-      background: rgba(255,255,255,.22);
+      right: -70px;
+      top: -70px;
+      background: rgba(22, 104, 232, 0.22);
+      filter: blur(6px);
     }
 
-    .terminal-body {
-      padding: 24px;
-      font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
-      font-size: .92rem;
-      color: #d8e3f6;
+    .system-card::after {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      left: -80px;
+      bottom: -80px;
+      background: rgba(25, 169, 116, 0.18);
     }
 
-    .terminal-body .muted { color: #72829f; }
-    .terminal-body .green { color: var(--secondary); }
-    .terminal-body .blue { color: var(--primary); }
+    .system-head,
+    .system-grid,
+    .system-footer {
+      position: relative;
+      z-index: 2;
+    }
 
-    section { padding: 92px 0; }
+    .system-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .system-head strong {
+      font-size: 0.95rem;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #b9c5d1;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #43d39e;
+      box-shadow: 0 0 0 5px rgba(67,211,158,.09);
+    }
+
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .metric {
+      min-height: 112px;
+      padding: 18px;
+      border-radius: 17px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .metric small {
+      color: #8fa0b1;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      font-weight: 750;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 12px;
+      font-size: 1.3rem;
+      letter-spacing: -0.03em;
+    }
+
+    .system-footer {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      font-family: "Cascadia Code", Consolas, monospace;
+      color: #92a3b4;
+      font-size: .82rem;
+    }
+
+    .system-footer b {
+      color: #7db3ff;
+      font-weight: 600;
+    }
+
+    /* SHARED SECTIONS */
+    section {
+      padding: 92px 0;
+    }
+
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .76rem;
+      font-weight: 850;
+      margin-bottom: 12px;
+    }
 
     .section-head {
-      max-width: 760px;
+      max-width: 780px;
       margin-bottom: 38px;
     }
 
-    .section-kicker {
-      color: var(--secondary);
-      text-transform: uppercase;
+    h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      font-weight: 840;
+    }
+
+    .section-head p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .focus-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border-radius: 22px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .focus-item {
+      background: var(--surface);
+      padding: 28px;
+    }
+
+    .focus-item span {
+      display: block;
+      color: var(--accent);
       font-size: .8rem;
-      font-weight: 800;
-      letter-spacing: .18em;
+      font-weight: 850;
       margin-bottom: 10px;
     }
 
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      letter-spacing: -.045em;
-      line-height: 1.05;
-      margin: 0 0 15px;
+    .focus-item h3 {
+      margin: 0 0 9px;
+      font-size: 1.16rem;
+      letter-spacing: -0.02em;
     }
 
-    .section-head p,
-    .muted-text { color: var(--muted); }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      border-radius: var(--radius);
-      padding: 24px;
-      transition: .2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      background: var(--panel-strong);
-      border-color: rgba(112,167,255,.25);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-    }
-
-    .card p {
+    .focus-item p {
       margin: 0;
       color: var(--muted);
-      font-size: .96rem;
+      font-size: .93rem;
     }
 
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 18px;
+    .dark-section {
+      background: var(--dark);
+      color: #fff;
     }
 
-    .tag {
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
-      font-size: .82rem;
-      color: #cbd6e8;
+    .dark-section .section-head p {
+      color: #aeb9c4;
     }
 
-    .project-grid {
+    .dark-section .section-label {
+      color: #7eb2ff;
+    }
+
+    .dark-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      gap: 14px;
     }
 
-    .project-card {
-      min-height: 260px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .dark-card {
+      padding: 28px;
+      min-height: 220px;
+      border-radius: 20px;
+      background: var(--dark-soft);
+      border: 1px solid rgba(255,255,255,.08);
     }
 
-    .project-num {
-      color: #6f7d96;
-      font-size: .8rem;
+    .dark-card .num {
+      color: #6f8295;
+      font-size: .75rem;
+      letter-spacing: .16em;
       font-weight: 800;
-      letter-spacing: .15em;
     }
 
-    .project-card h3 {
-      font-size: 1.45rem;
-      letter-spacing: -.025em;
-      margin: 12px 0 10px;
+    .dark-card h3 {
+      margin: 28px 0 10px;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
     }
 
-    .skills-layout {
+    .dark-card p {
+      margin: 0;
+      color: #aeb9c4;
+    }
+
+    /* SERVICES */
+    .services-grid {
       display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 28px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
-    .skill-group {
-      padding: 23px 0;
+    .service-card {
+      min-height: 270px;
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(21,25,31,.035);
+      transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: #bfcbd7;
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 42px;
+      border-radius: 13px;
+      background: var(--surface-soft);
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.14rem;
+      letter-spacing: -0.02em;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    /* WORKFLOW */
+    .workflow {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .workflow-intro {
+      position: sticky;
+      top: 112px;
+    }
+
+    .steps {
+      border-top: 1px solid var(--line);
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 18px;
+      padding: 28px 0;
       border-bottom: 1px solid var(--line);
     }
 
-    .skill-group:first-child { padding-top: 0; }
-    .skill-group:last-child { border-bottom: 0; }
-
-    .skill-group strong {
-      display: block;
-      margin-bottom: 10px;
+    .step-no {
+      color: var(--accent);
+      font-weight: 850;
+      font-size: .84rem;
     }
 
-    .timeline {
-      border-left: 1px solid var(--line);
-      padding-left: 26px;
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: 1.12rem;
     }
 
-    .timeline-item {
-      position: relative;
-      padding: 0 0 32px;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -32px;
-      top: 7px;
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: var(--primary);
-      box-shadow: 0 0 0 6px rgba(112,167,255,.09);
-    }
-
-    .timeline-item h3 {
-      margin: 0 0 7px;
-      font-size: 1.1rem;
-    }
-
-    .timeline-item p {
+    .step p {
       margin: 0;
       color: var(--muted);
     }
 
-    .contact-box {
-      text-align: center;
-      padding: 58px 24px;
+    /* PROJECTS */
+    .project-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 190px 1fr auto;
+      gap: 26px;
+      align-items: center;
+      padding: 26px;
+      background: var(--surface);
       border: 1px solid var(--line);
-      background:
-        radial-gradient(circle at top, rgba(110,231,199,.09), transparent 38%),
-        var(--panel);
-      border-radius: 30px;
+      border-radius: 20px;
     }
 
-    .contact-box p {
+    .project-type {
       color: var(--muted);
-      max-width: 660px;
-      margin: 16px auto 28px;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 800;
     }
 
+    .project h3 {
+      margin: 0 0 6px;
+      font-size: 1.24rem;
+      letter-spacing: -0.025em;
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+      max-width: 260px;
+    }
+
+    .project-tech span {
+      border-radius: 999px;
+      background: var(--surface-soft);
+      padding: 6px 9px;
+      color: #52606e;
+      font-size: .75rem;
+      font-weight: 680;
+    }
+
+    /* STACK */
+    .stack-layout {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .stack-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .stack-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 18px;
+      padding: 23px 25px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stack-row:last-child {
+      border-bottom: 0;
+    }
+
+    .stack-row strong {
+      font-size: .92rem;
+    }
+
+    .stack-row div:last-child {
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    .about-card {
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .about-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.3rem;
+      letter-spacing: -0.03em;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .fact {
+      border-top: 1px solid var(--line);
+      padding-top: 15px;
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 1.35rem;
+      letter-spacing: -0.04em;
+    }
+
+    .fact small {
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    .contact {
+      padding-bottom: 110px;
+    }
+
+    .contact-card {
+      padding: clamp(34px, 6vw, 72px);
+      border-radius: 28px;
+      background: var(--accent);
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-card::after {
+      content: "</>";
+      position: absolute;
+      right: 5%;
+      bottom: -38px;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: clamp(7rem, 16vw, 13rem);
+      font-weight: 900;
+      color: rgba(255,255,255,.09);
+      letter-spacing: -.15em;
+      pointer-events: none;
+    }
+
+    .contact-card h2 {
+      max-width: 780px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-card p {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 18px 0 30px;
+      color: rgba(255,255,255,.78);
+    }
+
+    .contact-card .btn {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-card .btn-primary {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .contact-card .btn-secondary {
+      border-color: rgba(255,255,255,.35);
+      background: transparent;
+      color: #fff;
+    }
+
+    /* FOOTER */
     footer {
-      padding: 30px 0 44px;
-      color: #7f8da5;
-      text-align: center;
-      font-size: .9rem;
+      border-top: 1px solid var(--line);
+      padding: 26px 0 36px;
+      color: var(--muted);
+      font-size: .85rem;
     }
 
-    @media (max-width: 900px) {
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition:
+        opacity .55s ease,
+        transform .55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 980px) {
       .hero-grid,
-      .skills-layout {
+      .workflow,
+      .stack-layout,
+      .about-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
+      .hero-visual {
         min-height: auto;
-        padding-top: 64px;
+        max-width: 680px;
       }
 
-      .terminal-card {
-        max-width: 620px;
+      .focus-strip,
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .grid { grid-template-columns: 1fr 1fr; }
-      .project-grid { grid-template-columns: 1fr; }
+      .workflow-intro {
+        position: static;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+      }
+
+      .project-tech {
+        justify-content: flex-start;
+        max-width: none;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 76px 0 auto 0;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px 20px 22px;
+        background: rgba(244,246,248,.98);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        padding: 12px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
     }
 
-    @media (max-width: 650px) {
-      .nav-links { display: none; }
-      .grid { grid-template-columns: 1fr; }
-      h1 { font-size: clamp(3rem, 16vw, 4.7rem); }
-      section { padding: 72px 0; }
+    @media (max-width: 680px) {
+      .container {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .hero {
+        padding-top: 66px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 15vw, 4.5rem);
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .focus-strip,
+      .services-grid,
+      .dark-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .system-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .brand small {
+        display: none;
+      }
+
+      .lang-switch span {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <nav class="nav">
+  <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#top">Rafael<span>.</span></a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+      <a class="brand" href="#top" aria-label="Rafael Maeda home">
+        <span class="brand-mark">RM</span>
+        <span>
+          Rafael Maeda
+          <small data-en="PHP Full-Stack / Backend Developer" data-pt="Desenvolvedor PHP Full-Stack / Backend">
+            PHP Full-Stack / Backend Developer
+          </small>
+        </span>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+          <a href="#services" data-en="Services" data-pt="Serviços">Services</a>
+          <a href="#workflow" data-en="How I work" data-pt="Como trabalho">How I work</a>
+          <a href="#projects" data-en="Projects" data-pt="Projetos">Projects</a>
+          <a href="#stack" data-en="Stack" data-pt="Tecnologias">Stack</a>
+          <a href="#about" data-en="About" data-pt="Sobre">About</a>
+          <a href="#contact" data-en="Contact" data-pt="Contato">Contact</a>
+        </nav>
+
+        <div class="lang-switch" aria-label="Language selector">
+          <button type="button" class="active" data-lang="en">EN</button>
+          <span>/</span>
+          <button type="button" data-lang="pt">PT</button>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          ☰
+        </button>
       </div>
     </div>
-  </nav>
+  </header>
 
   <main id="top">
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">
-            <span class="dot"></span>
-            Full-Stack / Backend Developer
+        <div class="reveal">
+          <div
+            class="eyebrow"
+            data-en="PHP Full-Stack / Backend Developer"
+            data-pt="Desenvolvedor PHP Full-Stack / Backend"
+          >
+            PHP Full-Stack / Backend Developer
           </div>
 
-          <h1>
-            I build <span class="gradient">business software</span>
-            that solves real problems.
+          <h1
+            data-en="I turn complex business rules into reliable software."
+            data-pt="Transformo regras de negócio complexas em software confiável."
+          >
+            I turn complex business rules into reliable software.
           </h1>
 
-          <p>
-            PHP developer focused on backend systems, APIs, reporting, automation,
-            dealership platforms and practical web applications. Experienced with
-            Laravel, Symfony, MySQL/MariaDB and modern JavaScript tooling.
+          <p
+            class="hero-copy"
+            data-en="I build and maintain PHP applications, internal platforms, APIs, reporting systems and integrations — with a practical focus on real operations, maintainability and business value."
+            data-pt="Desenvolvo e mantenho aplicações PHP, plataformas internas, APIs, sistemas de relatórios e integrações — com foco prático em operações reais, manutenção e valor para o negócio."
+          >
+            I build and maintain PHP applications, internal platforms, APIs, reporting systems and integrations — with a practical focus on real operations, maintainability and business value.
+          </p>
+
+          <div class="hero-tags">
+            <span class="chip">PHP 8+</span>
+            <span class="chip">Laravel</span>
+            <span class="chip">Symfony</span>
+            <span class="chip">MySQL / MariaDB</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">JavaScript</span>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">
+              <span data-en="View selected work" data-pt="Ver projetos">View selected work</span>
+              <span>→</span>
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/rhmaeda"
+              target="_blank"
+              rel="noopener"
+            >
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="system-card">
+            <div class="system-head">
+              <strong data-en="Business system / production" data-pt="Sistema de negócio / produção">
+                Business system / production
+              </strong>
+              <span class="status" data-en="Stable" data-pt="Estável">Stable</span>
+            </div>
+
+            <div class="system-grid">
+              <div class="metric">
+                <small data-en="Backend" data-pt="Backend">Backend</small>
+                <strong>PHP / SQL</strong>
+              </div>
+
+              <div class="metric">
+                <small data-en="Data" data-pt="Dados">Data</small>
+                <strong>Reports & APIs</strong>
+              </div>
+
+              <div class="metric">
+                <small data-en="Operations" data-pt="Operações">Operations</small>
+                <strong>Workflow logic</strong>
+              </div>
+
+              <div class="metric">
+                <small data-en="Delivery" data-pt="Entrega">Delivery</small>
+                <strong>Git / VPS / IIS</strong>
+              </div>
+            </div>
+
+            <div class="system-footer">
+              <div><b>$</b> analyse → implement → test → deploy</div>
+              <div><b>$</b> keep business running while improving the system</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOCUS -->
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label" data-en="Focus" data-pt="Foco">Focus</div>
+          <h2
+            data-en="Software built around real business processes."
+            data-pt="Software construído em torno de processos reais de negócio."
+          >
+            Software built around real business processes.
+          </h2>
+        </div>
+
+        <div class="focus-strip reveal">
+          <article class="focus-item">
+            <span>01</span>
+            <h3 data-en="Backend & business logic" data-pt="Backend e regras de negócio">
+              Backend & business logic
+            </h3>
+            <p
+              data-en="PHP applications, data models, permissions, workflows, calculations and production-critical logic."
+              data-pt="Aplicações PHP, modelos de dados, permissões, workflows, cálculos e lógica crítica de produção."
+            >
+              PHP applications, data models, permissions, workflows, calculations and production-critical logic.
+            </p>
+          </article>
+
+          <article class="focus-item">
+            <span>02</span>
+            <h3 data-en="Existing systems" data-pt="Sistemas existentes">Existing systems</h3>
+            <p
+              data-en="Understanding mature codebases, fixing production issues and improving them without unnecessary rewrites."
+              data-pt="Entendimento de codebases maduras, correção de problemas em produção e evolução sem reescritas desnecessárias."
+            >
+              Understanding mature codebases, fixing production issues and improving them without unnecessary rewrites.
+            </p>
+          </article>
+
+          <article class="focus-item">
+            <span>03</span>
+            <h3 data-en="Data, reports & automation" data-pt="Dados, relatórios e automação">
+              Data, reports & automation
+            </h3>
+            <p
+              data-en="Operational reporting, Excel exports, APIs, scheduled processes and tools that reduce repetitive work."
+              data-pt="Relatórios operacionais, exportações Excel, APIs, processos agendados e ferramentas que reduzem trabalho repetitivo."
+            >
+              Operational reporting, Excel exports, APIs, scheduled processes and tools that reduce repetitive work.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHERE I FIT -->
+    <section class="dark-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label" data-en="Where I fit best" data-pt="Onde agrego mais valor">
+            Where I fit best
+          </div>
+          <h2
+            data-en="Projects where software is part of the daily operation."
+            data-pt="Projetos em que o software faz parte da operação diária."
+          >
+            Projects where software is part of the daily operation.
+          </h2>
+          <p
+            data-en="I am most useful when the application has real users, real data and business rules that need to keep working while the product evolves."
+            data-pt="Sou mais útil quando a aplicação tem usuários reais, dados reais e regras de negócio que precisam continuar funcionando enquanto o produto evolui."
+          >
+            I am most useful when the application has real users, real data and business rules that need to keep working while the product evolves.
+          </p>
+        </div>
+
+        <div class="dark-grid">
+          <article class="dark-card reveal">
+            <div class="num">01 / EXISTING PHP SYSTEMS</div>
+            <h3 data-en="Maintain and evolve mature applications" data-pt="Manter e evoluir aplicações maduras">
+              Maintain and evolve mature applications
+            </h3>
+            <p
+              data-en="Work safely inside existing architecture, preserve business-critical behaviour and improve the code incrementally."
+              data-pt="Trabalhar com segurança em arquiteturas existentes, preservar comportamentos críticos e melhorar o código de forma incremental."
+            >
+              Work safely inside existing architecture, preserve business-critical behaviour and improve the code incrementally.
+            </p>
+          </article>
+
+          <article class="dark-card reveal">
+            <div class="num">02 / INTERNAL PLATFORMS</div>
+            <h3 data-en="Operational and management systems" data-pt="Sistemas operacionais e de gestão">
+              Operational and management systems
+            </h3>
+            <p
+              data-en="Dashboards, workshop operations, stock, sales, permissions, parts, customer data and internal workflows."
+              data-pt="Dashboards, operações de oficina, estoque, vendas, permissões, peças, dados de clientes e fluxos internos."
+            >
+              Dashboards, workshop operations, stock, sales, permissions, parts, customer data and internal workflows.
+            </p>
+          </article>
+
+          <article class="dark-card reveal">
+            <div class="num">03 / INTEGRATIONS</div>
+            <h3 data-en="APIs and data flows" data-pt="APIs e fluxos de dados">APIs and data flows</h3>
+            <p
+              data-en="Connect systems, process external data and build reliable interfaces between applications."
+              data-pt="Conectar sistemas, processar dados externos e criar interfaces confiáveis entre aplicações."
+            >
+              Connect systems, process external data and build reliable interfaces between applications.
+            </p>
+          </article>
+
+          <article class="dark-card reveal">
+            <div class="num">04 / AUTOMATION</div>
+            <h3 data-en="Remove repetitive operational work" data-pt="Eliminar trabalho operacional repetitivo">
+              Remove repetitive operational work
+            </h3>
+            <p
+              data-en="Scheduled jobs, imports, exports, scripts, browser tooling and practical automation around existing processes."
+              data-pt="Tarefas agendadas, importações, exportações, scripts, ferramentas de navegador e automações práticas."
+            >
+              Scheduled jobs, imports, exports, scripts, browser tooling and practical automation around existing processes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label" data-en="Services" data-pt="Serviços">Services</div>
+          <h2 data-en="How I can contribute." data-pt="Como posso contribuir.">
+            How I can contribute.
+          </h2>
+          <p
+            data-en="From a specific backend feature to long-term development of an internal business platform."
+            data-pt="Desde uma funcionalidade específica de backend até a evolução contínua de uma plataforma interna."
+          >
+            From a specific backend feature to long-term development of an internal business platform.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon">&lt;/&gt;</div>
+            <h3 data-en="PHP application development" data-pt="Desenvolvimento de aplicações PHP">
+              PHP application development
+            </h3>
+            <p
+              data-en="Backend features, domain rules, forms, authentication, permissions and production workflows."
+              data-pt="Funcionalidades de backend, regras de domínio, formulários, autenticação, permissões e workflows."
+            >
+              Backend features, domain rules, forms, authentication, permissions and production workflows.
+            </p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">API</div>
+            <h3 data-en="REST APIs & integrations" data-pt="APIs REST e integrações">
+              REST APIs & integrations
+            </h3>
+            <p
+              data-en="Endpoints, external services, JSON/XML data flows and integration logic between systems."
+              data-pt="Endpoints, serviços externos, fluxos JSON/XML e lógica de integração entre sistemas."
+            >
+              Endpoints, external services, JSON/XML data flows and integration logic between systems.
+            </p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">SQL</div>
+            <h3 data-en="Database & reporting" data-pt="Banco de dados e relatórios">
+              Database & reporting
+            </h3>
+            <p
+              data-en="SQL, operational reports, KPIs, large exports, Excel generation and practical data analysis."
+              data-pt="SQL, relatórios operacionais, KPIs, grandes exportações, geração de Excel e análise prática de dados."
+            >
+              SQL, operational reports, KPIs, large exports, Excel generation and practical data analysis.
+            </p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">↺</div>
+            <h3 data-en="Legacy system improvement" data-pt="Evolução de sistemas legados">
+              Legacy system improvement
+            </h3>
+            <p
+              data-en="Debug existing code, reduce risk and modernize incrementally instead of rewriting everything."
+              data-pt="Depurar código existente, reduzir riscos e modernizar de forma incremental em vez de reescrever tudo."
+            >
+              Debug existing code, reduce risk and modernize incrementally instead of rewriting everything.
+            </p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">⚙</div>
+            <h3 data-en="Automation & internal tooling" data-pt="Automação e ferramentas internas">
+              Automation & internal tooling
+            </h3>
+            <p
+              data-en="Scripts, cron-style tasks, browser extensions and tools that simplify repetitive operational work."
+              data-pt="Scripts, tarefas agendadas, extensões de navegador e ferramentas que simplificam trabalho repetitivo."
+            >
+              Scripts, cron-style tasks, browser extensions and tools that simplify repetitive operational work.
+            </p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">OPS</div>
+            <h3 data-en="Deployment & infrastructure support" data-pt="Deploy e suporte de infraestrutura">
+              Deployment & infrastructure support
+            </h3>
+            <p
+              data-en="VPS environments, Linux, Windows Server, IIS, Plesk, Docker and practical deployment troubleshooting."
+              data-pt="Ambientes VPS, Linux, Windows Server, IIS, Plesk, Docker e resolução prática de problemas de deploy."
+            >
+              VPS environments, Linux, Windows Server, IIS, Plesk, Docker and practical deployment troubleshooting.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section id="workflow">
+      <div class="container workflow">
+        <div class="workflow-intro section-head reveal">
+          <div class="section-label" data-en="How I work" data-pt="Como trabalho">How I work</div>
+          <h2
+            data-en="Understand first. Change carefully. Improve continuously."
+            data-pt="Entender primeiro. Alterar com cuidado. Melhorar continuamente."
+          >
+            Understand first. Change carefully. Improve continuously.
+          </h2>
+          <p
+            data-en="I prefer practical improvements that respect the current system, its users and the business behind it."
+            data-pt="Prefiro melhorias práticas que respeitem o sistema atual, seus usuários e o negócio por trás dele."
+          >
+            I prefer practical improvements that respect the current system, its users and the business behind it.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-no">01</div>
+            <div>
+              <h3 data-en="Understand the real requirement" data-pt="Entender a necessidade real">
+                Understand the real requirement
+              </h3>
+              <p
+                data-en="Start with the business process, current behaviour, data and operational constraints."
+                data-pt="Começar pelo processo de negócio, comportamento atual, dados e restrições operacionais."
+              >
+                Start with the business process, current behaviour, data and operational constraints.
+              </p>
+            </div>
+          </div>
+
+          <div class="step reveal">
+            <div class="step-no">02</div>
+            <div>
+              <h3 data-en="Trace the system impact" data-pt="Mapear o impacto no sistema">
+                Trace the system impact
+              </h3>
+              <p
+                data-en="Identify affected code, database structures, permissions, integrations and edge cases before changing production logic."
+                data-pt="Identificar código afetado, estruturas do banco, permissões, integrações e casos extremos antes de alterar lógica de produção."
+              >
+                Identify affected code, database structures, permissions, integrations and edge cases before changing production logic.
+              </p>
+            </div>
+          </div>
+
+          <div class="step reveal">
+            <div class="step-no">03</div>
+            <div>
+              <h3 data-en="Implement the smallest reliable change" data-pt="Implementar a menor mudança confiável">
+                Implement the smallest reliable change
+              </h3>
+              <p
+                data-en="Avoid unnecessary rewrites and keep changes understandable, testable and easy to support."
+                data-pt="Evitar reescritas desnecessárias e manter as mudanças compreensíveis, testáveis e fáceis de manter."
+              >
+                Avoid unnecessary rewrites and keep changes understandable, testable and easy to support.
+              </p>
+            </div>
+          </div>
+
+          <div class="step reveal">
+            <div class="step-no">04</div>
+            <div>
+              <h3 data-en="Verify with real operational scenarios" data-pt="Validar com cenários reais de operação">
+                Verify with real operational scenarios
+              </h3>
+              <p
+                data-en="Check the result against the workflow users actually follow — not only the happy path."
+                data-pt="Validar o resultado contra o fluxo que os usuários realmente seguem — não apenas o cenário ideal."
+              >
+                Check the result against the workflow users actually follow — not only the happy path.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label" data-en="Selected work" data-pt="Projetos selecionados">
+            Selected work
+          </div>
+          <h2 data-en="Systems and problems I have worked on." data-pt="Sistemas e problemas em que trabalhei.">
+            Systems and problems I have worked on.
+          </h2>
+          <p
+            data-en="A representative selection focused on business software, reporting, automation and operational tooling."
+            data-pt="Uma seleção representativa com foco em software de negócio, relatórios, automação e ferramentas operacionais."
+          >
+            A representative selection focused on business software, reporting, automation and operational tooling.
+          </p>
+        </div>
+
+        <div class="project-list">
+          <article class="project reveal">
+            <div class="project-type" data-en="Dealer management" data-pt="Gestão de concessionária">
+              Dealer management
+            </div>
+            <div>
+              <h3 data-en="Dealership operations platform" data-pt="Plataforma de operações para concessionária">
+                Dealership operations platform
+              </h3>
+              <p
+                data-en="Development across vehicle stock, sales approval, job cards, workshop scheduling, technician timers, parts, costs, permissions and reporting."
+                data-pt="Desenvolvimento em estoque de veículos, aprovação de vendas, job cards, agenda da oficina, timers de técnicos, peças, custos, permissões e relatórios."
+              >
+                Development across vehicle stock, sales approval, job cards, workshop scheduling, technician timers, parts, costs, permissions and reporting.
+              </p>
+            </div>
+            <div class="project-tech">
+              <span>PHP</span><span>MySQL</span><span>jQuery</span><span>Business Logic</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-type" data-en="Reporting" data-pt="Relatórios">Reporting</div>
+            <div>
+              <h3 data-en="Executive workshop reporting" data-pt="Relatórios executivos de oficina">
+                Executive workshop reporting
+              </h3>
+              <p
+                data-en="KPIs for workshop hours, technician availability, hours sold, efficiency, productivity, utilisation, costs and structured Excel exports."
+                data-pt="KPIs para horas da oficina, disponibilidade de técnicos, horas vendidas, eficiência, produtividade, utilização, custos e exportações estruturadas para Excel."
+              >
+                KPIs for workshop hours, technician availability, hours sold, efficiency, productivity, utilisation, costs and structured Excel exports.
+              </p>
+            </div>
+            <div class="project-tech">
+              <span>PhpSpreadsheet</span><span>SQL</span><span>Excel</span><span>KPIs</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-type" data-en="Chrome extension" data-pt="Extensão Chrome">
+              Chrome extension
+            </div>
+            <div>
+              <h3>YouTube Fresh Home</h3>
+              <p
+                data-en="Browser extension that tracks previously seen YouTube homepage recommendations and helps surface fresher content on subsequent visits."
+                data-pt="Extensão de navegador que registra recomendações já vistas na página inicial do YouTube e ajuda a exibir conteúdo mais novo em visitas futuras."
+              >
+                Browser extension that tracks previously seen YouTube homepage recommendations and helps surface fresher content on subsequent visits.
+              </p>
+            </div>
+            <div class="project-tech">
+              <span>JavaScript</span><span>Chrome APIs</span><span>Local Storage</span><span>UX</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-type" data-en="Device management" data-pt="Gestão de dispositivos">
+              Device management
+            </div>
+            <div>
+              <h3 data-en="Android kiosk / MDM deployment" data-pt="Implantação Android kiosk / MDM">
+                Android kiosk / MDM deployment
+              </h3>
+              <p
+                data-en="Managed tablet setup with kiosk restrictions, controlled applications, web access policies and self-hosted device-management infrastructure."
+                data-pt="Configuração de tablets gerenciados com restrições de kiosk, aplicativos controlados, políticas de acesso web e infraestrutura MDM self-hosted."
+              >
+                Managed tablet setup with kiosk restrictions, controlled applications, web access policies and self-hosted device-management infrastructure.
+              </p>
+            </div>
+            <div class="project-tech">
+              <span>Android</span><span>MDM</span><span>Docker</span><span>Self-hosted</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section id="stack">
+      <div class="container stack-layout">
+        <div class="section-head reveal">
+          <div class="section-label" data-en="Technology" data-pt="Tecnologias">Technology</div>
+          <h2 data-en="A pragmatic stack for business applications." data-pt="Uma stack pragmática para aplicações de negócio.">
+            A pragmatic stack for business applications.
+          </h2>
+          <p
+            data-en="I use technologies that fit the system and the team, with a strong focus on PHP and database-driven web applications."
+            data-pt="Uso tecnologias adequadas ao sistema e à equipe, com forte foco em PHP e aplicações web orientadas a banco de dados."
+          >
+            I use technologies that fit the system and the team, with a strong focus on PHP and database-driven web applications.
+          </p>
+        </div>
+
+        <div class="stack-panel reveal">
+          <div class="stack-row">
+            <strong>Backend</strong>
+            <div>PHP 8+, Laravel, Symfony, Laminas / Zend Framework, CodeIgniter, Yii2</div>
+          </div>
+          <div class="stack-row">
+            <strong>Database</strong>
+            <div>MySQL, MariaDB, SQL queries, data migrations, reporting and large exports</div>
+          </div>
+          <div class="stack-row">
+            <strong>Frontend</strong>
+            <div>HTML, CSS, JavaScript, jQuery, Bootstrap, Vue, Chart.js</div>
+          </div>
+          <div class="stack-row">
+            <strong>Data & files</strong>
+            <div>PhpSpreadsheet, CSV / Excel imports and exports, JSON, XML</div>
+          </div>
+          <div class="stack-row">
+            <strong>Infrastructure</strong>
+            <div>Linux, Windows Server, IIS, Plesk, Docker, VPS, Nginx / Apache</div>
+          </div>
+          <div class="stack-row">
+            <strong>Workflow</strong>
+            <div>Git, debugging, production support, deployment, automation and AI-assisted development</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label" data-en="About" data-pt="Sobre">About</div>
+          <h2
+            data-en="Developer mindset, operational perspective."
+            data-pt="Mentalidade de desenvolvedor, visão operacional."
+          >
+            Developer mindset, operational perspective.
+          </h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-card reveal">
+            <h3 data-en="What I bring" data-pt="O que eu trago">What I bring</h3>
+            <p
+              data-en="More than four years of PHP development experience, with hands-on work in full-stack and backend development, internal business systems, troubleshooting and production support."
+              data-pt="Mais de quatro anos de experiência com desenvolvimento PHP, atuando de forma prática em full-stack e backend, sistemas internos de negócio, troubleshooting e suporte de produção."
+            >
+              More than four years of PHP development experience, with hands-on work in full-stack and backend development, internal business systems, troubleshooting and production support.
+            </p>
+
+            <div class="facts">
+              <div class="fact">
+                <strong>10+ years</strong>
+                <small data-en="PHP development" data-pt="desenvolvimento PHP">PHP development</small>
+              </div>
+              <div class="fact">
+                <strong>Backend</strong>
+                <small data-en="business systems focus" data-pt="foco em sistemas de negócio">business systems focus</small>
+              </div>
+              <div class="fact">
+                <strong>EN / PT</strong>
+                <small data-en="professional communication" data-pt="comunicação profissional">professional communication</small>
+              </div>
+              <div class="fact">
+                <strong>Ireland</strong>
+                <small data-en="based in Ireland" data-pt="residindo na Irlanda">based in Ireland</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="about-card reveal">
+            <h3 data-en="What matters to me in software" data-pt="O que valorizo em software">
+              What matters to me in software
+            </h3>
+            <p
+              data-en="Clear business logic, understandable code, stable behaviour and solutions that make the user's work easier. I am comfortable investigating unfamiliar systems and working through problems across application code, database, hosting and infrastructure."
+              data-pt="Regras de negócio claras, código compreensível, comportamento estável e soluções que facilitem o trabalho do usuário. Tenho facilidade para investigar sistemas desconhecidos e resolver problemas entre aplicação, banco de dados, hospedagem e infraestrutura."
+            >
+              Clear business logic, understandable code, stable behaviour and solutions that make the user's work easier. I am comfortable investigating unfamiliar systems and working through problems across application code, database, hosting and infrastructure.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="section-label" style="color: rgba(255,255,255,.72)"
+               data-en="Contact" data-pt="Contato">Contact</div>
+          <h2
+            data-en="Need a developer who can understand the system behind the ticket?"
+            data-pt="Precisa de um desenvolvedor que entenda o sistema por trás do ticket?"
+          >
+            Need a developer who can understand the system behind the ticket?
+          </h2>
+          <p
+            data-en="You can find my public work and contact details through GitHub. This site is also available at rhmaeda.dev."
+            data-pt="Você pode encontrar meus trabalhos públicos e formas de contato pelo GitHub. Este site também está disponível em rhmaeda.dev."
+          >
+            You can find my public work and contact details through GitHub. This site is also available at rhmaeda.dev.
           </p>
 
           <div class="actions">
-            <a class="btn btn-primary" href="#work">View selected work</a>
-            <a class="btn btn-secondary" href="https://github.com/rhmaeda" target="_blank" rel="noopener">
-              GitHub
+            <a
+              class="btn btn-primary"
+              href="https://github.com/rhmaeda"
+              target="_blank"
+              rel="noopener"
+            >
+              <span data-en="Open GitHub" data-pt="Abrir GitHub">Open GitHub</span> ↗
             </a>
-          </div>
-        </div>
 
-        <aside class="terminal-card" aria-label="Developer profile">
-          <div class="terminal-top">
-            <i></i><i></i><i></i>
-          </div>
-          <div class="terminal-body">
-            <div><span class="muted">$</span> whoami</div>
-            <br>
-            <div><span class="blue">name</span>: Rafael Maeda</div>
-            <div><span class="blue">role</span>: Full-Stack / Backend Developer</div>
-            <div><span class="blue">focus</span>: PHP, Laravel, Symfony, APIs</div>
-            <div><span class="blue">database</span>: MySQL / MariaDB</div>
-            <div><span class="blue">frontend</span>: JavaScript, jQuery, Bootstrap, Vue</div>
-            <div><span class="blue">platforms</span>: Linux, Windows, IIS, Plesk, VPS</div>
-            <br>
-            <div class="green">status: building useful things ✓</div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-kicker">About</div>
-          <h2>Practical engineering with a strong business focus.</h2>
-          <p>
-            I work across backend development, internal platforms, data-heavy reporting,
-            infrastructure and workflow automation. I enjoy translating complex business
-            rules into reliable, maintainable software.
-          </p>
-        </div>
-
-        <div class="grid">
-          <article class="card">
-            <h3>Backend development</h3>
-            <p>
-              Server-side applications, REST APIs, integrations, authentication,
-              business logic and database-driven systems.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Business systems</h3>
-            <p>
-              Experience with dealership workflows, job cards, stock, sales,
-              parts, invoicing, workshop operations and reporting.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Automation & infrastructure</h3>
-            <p>
-              VPS deployments, Linux scripting, scheduled tasks, Windows Server,
-              IIS, Plesk, Docker and self-hosted tooling.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="work">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-kicker">Selected work</div>
-          <h2>Projects and systems I have worked on.</h2>
-          <p>
-            A selection of the kinds of problems I solve: internal business platforms,
-            reporting, automation, browser tooling and infrastructure projects.
-          </p>
-        </div>
-
-        <div class="project-grid">
-          <article class="card project-card">
-            <div>
-              <div class="project-num">01 / DEALER MANAGEMENT</div>
-              <h3>Dealership management platform</h3>
-              <p>
-                Development across stock management, vehicle sales, job cards,
-                workshop scheduling, parts, invoicing, user permissions and operational workflows.
-              </p>
-            </div>
-            <div class="tag-list">
-              <span class="tag">PHP</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">jQuery</span>
-              <span class="tag">Business Logic</span>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div>
-              <div class="project-num">02 / REPORTING</div>
-              <h3>Executive reporting & Excel exports</h3>
-              <p>
-                Built reporting features involving workshop performance, technician hours,
-                costs, sales data, operational KPIs and structured Excel exports.
-              </p>
-            </div>
-            <div class="tag-list">
-              <span class="tag">PhpSpreadsheet</span>
-              <span class="tag">SQL</span>
-              <span class="tag">KPIs</span>
-              <span class="tag">Excel</span>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div>
-              <div class="project-num">03 / BROWSER EXTENSION</div>
-              <h3>YouTube Fresh Home</h3>
-              <p>
-                Chrome extension designed to improve the YouTube home feed by tracking
-                previously seen recommendations and helping surface fresh videos.
-              </p>
-            </div>
-            <div class="tag-list">
-              <span class="tag">Chrome Extension</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Browser APIs</span>
-              <span class="tag">UX</span>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div>
-              <div class="project-num">04 / DEVICE MANAGEMENT</div>
-              <h3>Android kiosk & MDM deployment</h3>
-              <p>
-                Worked on managed Android tablet deployments including kiosk mode,
-                application restrictions, web access control and self-hosted device-management tooling.
-              </p>
-            </div>
-            <div class="tag-list">
-              <span class="tag">Android</span>
-              <span class="tag">MDM</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Self-hosting</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container skills-layout">
-        <div class="section-head">
-          <div class="section-kicker">Skills</div>
-          <h2>Technologies I use.</h2>
-          <p>
-            I prefer tools that are reliable, maintainable and appropriate for the
-            problem rather than chasing complexity for its own sake.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="skill-group">
-            <strong>Backend</strong>
-            <div class="tag-list">
-              <span class="tag">PHP 8+</span>
-              <span class="tag">Laravel</span>
-              <span class="tag">Symfony</span>
-              <span class="tag">Laminas / Zend</span>
-              <span class="tag">CodeIgniter</span>
-              <span class="tag">Yii2</span>
-              <span class="tag">REST APIs</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <strong>Databases & data</strong>
-            <div class="tag-list">
-              <span class="tag">MySQL</span>
-              <span class="tag">MariaDB</span>
-              <span class="tag">SQL</span>
-              <span class="tag">PhpSpreadsheet</span>
-              <span class="tag">CSV / Excel processing</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <strong>Frontend</strong>
-            <div class="tag-list">
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">jQuery</span>
-              <span class="tag">Bootstrap</span>
-              <span class="tag">Vue</span>
-              <span class="tag">Chart.js</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <strong>Infrastructure & tools</strong>
-            <div class="tag-list">
-              <span class="tag">Git</span>
-              <span class="tag">Linux</span>
-              <span class="tag">Windows Server</span>
-              <span class="tag">IIS</span>
-              <span class="tag">Plesk</span>
-              <span class="tag">Docker</span>
-              <span class="tag">VPS</span>
-              <span class="tag">Nginx / Apache</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-kicker">Experience</div>
-          <h2>How I approach development.</h2>
-          <p>
-            My work is strongly oriented around production systems, real users,
-            operational constraints and measurable business outcomes.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <h3>Full-stack development</h3>
-            <p>
-              Building and maintaining PHP applications across backend logic,
-              database design, interfaces, reports and third-party integrations.
-            </p>
-          </div>
-
-          <div class="timeline-item">
-            <h3>Complex business rules</h3>
-            <p>
-              Implementing workflows involving sales approval, workshop efficiency,
-              technician time, stock costing, VAT, parts and operational reporting.
-            </p>
-          </div>
-
-          <div class="timeline-item">
-            <h3>Problem solving & debugging</h3>
-            <p>
-              Diagnosing production issues across PHP, SQL, hosting, browsers,
-              Windows, Linux, networking and deployment environments.
-            </p>
-          </div>
-
-          <div class="timeline-item">
-            <h3>Continuous improvement</h3>
-            <p>
-              Improving systems through better automation, safer workflows,
-              clearer interfaces and more useful reporting.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="contact-box">
-          <div class="section-kicker">Contact</div>
-          <h2>Let’s build something useful.</h2>
-          <p>
-            I’m interested in backend, full-stack and business software projects,
-            especially where there is a real operational problem to solve.
-          </p>
-          <div class="actions" style="justify-content:center">
-            <a class="btn btn-primary" href="https://github.com/rhmaeda" target="_blank" rel="noopener">
-              View GitHub
-            </a>
-            <a class="btn btn-secondary" href="mailto:maedajr@pm.me">
-              Email me
+            <a class="btn btn-secondary" href="#top">
+              <span data-en="Back to top" data-pt="Voltar ao topo">Back to top</span> ↑
             </a>
           </div>
         </div>
@@ -725,13 +1619,70 @@
   </main>
 
   <footer>
-    <div class="container">
-      © <span id="year"></span> Rafael Maeda.
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Rafael Maeda</div>
+      <div>rhmaeda.dev · PHP Full-Stack / Backend Developer</div>
     </div>
   </footer>
 
   <script>
+    const translations = document.querySelectorAll("[data-en][data-pt]");
+    const langButtons = document.querySelectorAll("[data-lang]");
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+
+      translations.forEach((element) => {
+        element.textContent = element.dataset[lang];
+      });
+
+      langButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+      });
+
+      localStorage.setItem("portfolio-language", lang);
+    }
+
+    const savedLanguage = localStorage.getItem("portfolio-language");
+    const defaultLanguage = savedLanguage || "en";
+    setLanguage(defaultLanguage);
+
+    langButtons.forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.lang));
+    });
+
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.textContent = open ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
   </script>
 </body>
 </html>
