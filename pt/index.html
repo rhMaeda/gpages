@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rafael Maeda | Desenvolvedor PHP, Laravel e Backend</title><meta content="Desenvolvedor PHP full-stack e backend na Irlanda com experiência em Laravel, Symfony, MySQL, APIs REST, sistemas de negócio, integrações, relatórios e automação." name="description"/><meta content="Rafael Maeda" name="author"/><meta content="Rafael Maeda" name="creator"/><meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/><meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="googlebot"/><meta content="#f4f6f8" name="theme-color"/><link href="https://rhmaeda.dev/pt/" rel="canonical"/><link href="https://rhmaeda.dev/" hreflang="en-IE" rel="alternate"/><link href="https://rhmaeda.dev/pt/" hreflang="pt-BR" rel="alternate"/><link href="https://rhmaeda.dev/" hreflang="x-default" rel="alternate"/><link href="/favicon.svg" rel="icon" type="image/svg+xml"/><meta content="website" property="og:type"/><meta content="Rafael Maeda" property="og:site_name"/><meta content="Rafael Maeda | Desenvolvedor PHP, Laravel e Backend" property="og:title"/><meta content="Desenvolvedor PHP full-stack e backend na Irlanda com experiência em Laravel, Symfony, MySQL, APIs REST, sistemas de negócio, integrações, relatórios e automação." property="og:description"/><meta content="https://rhmaeda.dev/pt/" property="og:url"/><meta content="https://rhmaeda.dev/og-image.png" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Rafael Maeda — PHP Full-Stack and Backend Developer" property="og:image:alt"/><meta content="pt_BR" property="og:locale"/><meta content="summary_large_image" name="twitter:card"/><meta content="Rafael Maeda | Desenvolvedor PHP, Laravel e Backend" name="twitter:title"/><meta content="Desenvolvedor PHP full-stack e backend na Irlanda com experiência em Laravel, Symfony, MySQL, APIs REST, sistemas de negócio, integrações, relatórios e automação." name="twitter:description"/><meta content="https://rhmaeda.dev/og-image.png" name="twitter:image"/><meta content="en_IE" property="og:locale:alternate"/>
+
+
+
+
+
+
+<style>
+    :root {
+      --bg: #f4f6f8;
+      --surface: #ffffff;
+      --surface-soft: #edf1f4;
+      --ink: #15191f;
+      --muted: #66717e;
+      --line: #dce2e8;
+      --accent: #1668e8;
+      --accent-2: #19a974;
+      --dark: #0f1720;
+      --dark-soft: #192431;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(21, 25, 31, 0.08);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(220, 226, 232, 0.9);
+      background: rgba(244, 246, 248, 0.88);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 850;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--dark);
+      color: #fff;
+      font-size: 0.88rem;
+      letter-spacing: -0.06em;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 650;
+      letter-spacing: 0;
+      margin-top: -3px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: #47515c;
+      font-size: 0.91rem;
+      font-weight: 650;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 750;
+    }
+
+    .lang-switch button,
+    .lang-switch a {
+      appearance: none;
+      border: 0;
+      background: none;
+      padding: 4px;
+      cursor: pointer;
+      color: inherit;
+      font-weight: 800;
+    }
+
+    .lang-switch button.active,
+    .lang-switch a.active {
+      color: var(--ink);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: var(--surface);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: inset 0 0 0 1px var(--line);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 96px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+      gap: 62px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 850;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      max-width: 880px;
+      margin: 0;
+      font-size: clamp(3.25rem, 7vw, 6.5rem);
+      line-height: 0.96;
+      letter-spacing: -0.065em;
+      font-weight: 850;
+    }
+
+    .hero-copy {
+      max-width: 780px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.45vw, 1.22rem);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 26px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.7);
+      color: #39434e;
+      font-size: 0.82rem;
+      font-weight: 680;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 18px;
+      border-radius: 13px;
+      border: 1px solid transparent;
+      font-weight: 780;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--dark);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(15,23,32,.15);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: var(--surface);
+    }
+
+    .hero-visual {
+      min-height: 470px;
+      display: grid;
+      align-items: center;
+    }
+
+    .system-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 28px;
+      background: var(--dark);
+      color: #fff;
+      box-shadow: 0 30px 70px rgba(15, 23, 32, 0.2);
+    }
+
+    .system-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      right: -70px;
+      top: -70px;
+      background: rgba(22, 104, 232, 0.22);
+      filter: blur(6px);
+    }
+
+    .system-card::after {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      left: -80px;
+      bottom: -80px;
+      background: rgba(25, 169, 116, 0.18);
+    }
+
+    .system-head,
+    .system-grid,
+    .system-footer {
+      position: relative;
+      z-index: 2;
+    }
+
+    .system-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .system-head strong {
+      font-size: 0.95rem;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #b9c5d1;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #43d39e;
+      box-shadow: 0 0 0 5px rgba(67,211,158,.09);
+    }
+
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .metric {
+      min-height: 112px;
+      padding: 18px;
+      border-radius: 17px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .metric small {
+      color: #8fa0b1;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      font-weight: 750;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 12px;
+      font-size: 1.3rem;
+      letter-spacing: -0.03em;
+    }
+
+    .system-footer {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      font-family: "Cascadia Code", Consolas, monospace;
+      color: #92a3b4;
+      font-size: .82rem;
+    }
+
+    .system-footer b {
+      color: #7db3ff;
+      font-weight: 600;
+    }
+
+    /* SHARED SECTIONS */
+    section {
+      padding: 92px 0;
+    }
+
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .76rem;
+      font-weight: 850;
+      margin-bottom: 12px;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 38px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      font-weight: 840;
+    }
+
+    .section-head p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .focus-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border-radius: 22px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .focus-item {
+      background: var(--surface);
+      padding: 28px;
+    }
+
+    .focus-item span {
+      display: block;
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 850;
+      margin-bottom: 10px;
+    }
+
+    .focus-item h3 {
+      margin: 0 0 9px;
+      font-size: 1.16rem;
+      letter-spacing: -0.02em;
+    }
+
+    .focus-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    .dark-section {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .dark-section .section-head p {
+      color: #aeb9c4;
+    }
+
+    .dark-section .section-label {
+      color: #7eb2ff;
+    }
+
+    .dark-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .dark-card {
+      padding: 28px;
+      min-height: 220px;
+      border-radius: 20px;
+      background: var(--dark-soft);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .dark-card .num {
+      color: #6f8295;
+      font-size: .75rem;
+      letter-spacing: .16em;
+      font-weight: 800;
+    }
+
+    .dark-card h3 {
+      margin: 28px 0 10px;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+    }
+
+    .dark-card p {
+      margin: 0;
+      color: #aeb9c4;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      min-height: 270px;
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(21,25,31,.035);
+      transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: #bfcbd7;
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 42px;
+      border-radius: 13px;
+      background: var(--surface-soft);
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.14rem;
+      letter-spacing: -0.02em;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    /* WORKFLOW */
+    .workflow {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .workflow-intro {
+      position: sticky;
+      top: 112px;
+    }
+
+    .steps {
+      border-top: 1px solid var(--line);
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 18px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step-no {
+      color: var(--accent);
+      font-weight: 850;
+      font-size: .84rem;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: 1.12rem;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* PROJECTS */
+    .project-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 190px 1fr auto;
+      gap: 26px;
+      align-items: center;
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+    }
+
+    .project-type {
+      color: var(--muted);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 800;
+    }
+
+    .project h3 {
+      margin: 0 0 6px;
+      font-size: 1.24rem;
+      letter-spacing: -0.025em;
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+      max-width: 260px;
+    }
+
+    .project-tech span {
+      border-radius: 999px;
+      background: var(--surface-soft);
+      padding: 6px 9px;
+      color: #52606e;
+      font-size: .75rem;
+      font-weight: 680;
+    }
+
+    /* STACK */
+    .stack-layout {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .stack-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .stack-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 18px;
+      padding: 23px 25px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stack-row:last-child {
+      border-bottom: 0;
+    }
+
+    .stack-row strong {
+      font-size: .92rem;
+    }
+
+    .stack-row div:last-child {
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    .about-card {
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .about-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.3rem;
+      letter-spacing: -0.03em;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .fact {
+      border-top: 1px solid var(--line);
+      padding-top: 15px;
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 1.35rem;
+      letter-spacing: -0.04em;
+    }
+
+    .fact small {
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    .contact {
+      padding-bottom: 110px;
+    }
+
+    .contact-card {
+      padding: clamp(34px, 6vw, 72px);
+      border-radius: 28px;
+      background: var(--accent);
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-card::after {
+      content: "</>";
+      position: absolute;
+      right: 5%;
+      bottom: -38px;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: clamp(7rem, 16vw, 13rem);
+      font-weight: 900;
+      color: rgba(255,255,255,.09);
+      letter-spacing: -.15em;
+      pointer-events: none;
+    }
+
+    .contact-card h2 {
+      max-width: 780px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-card p {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 18px 0 30px;
+      color: rgba(255,255,255,.78);
+    }
+
+    .contact-card .btn {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-card .btn-primary {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .contact-card .btn-secondary {
+      border-color: rgba(255,255,255,.35);
+      background: transparent;
+      color: #fff;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 26px 0 36px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition:
+        opacity .55s ease,
+        transform .55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .workflow,
+      .stack-layout,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: auto;
+        max-width: 680px;
+      }
+
+      .focus-strip,
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .workflow-intro {
+        position: static;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+      }
+
+      .project-tech {
+        justify-content: flex-start;
+        max-width: none;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 76px 0 auto 0;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px 20px 22px;
+        background: rgba(244,246,248,.98);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        padding: 12px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .hero {
+        padding-top: 66px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 15vw, 4.5rem);
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .focus-strip,
+      .services-grid,
+      .dark-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .system-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .brand small {
+        display: none;
+      }
+
+      .lang-switch span {
+        display: none;
+      }
+    }
+  </style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://rhmaeda.dev/#person",
+      "name": "Rafael Maeda",
+      "url": "https://rhmaeda.dev/",
+      "image": "https://rhmaeda.dev/og-image.png",
+      "jobTitle": "PHP Full-Stack / Backend Developer",
+      "description": "Desenvolvedor PHP full-stack e backend na Irlanda com experiência em Laravel, Symfony, MySQL, APIs REST, sistemas de negócio, integrações, relatórios e automação.",
+      "sameAs": [
+        "https://github.com/rhmaeda"
+      ],
+      "knowsAbout": [
+        "PHP",
+        "Laravel",
+        "Symfony",
+        "Laminas",
+        "Zend Framework",
+        "CodeIgniter",
+        "Yii2",
+        "MySQL",
+        "MariaDB",
+        "REST APIs",
+        "JavaScript",
+        "jQuery",
+        "Bootstrap",
+        "Vue.js",
+        "Chart.js",
+        "PhpSpreadsheet",
+        "Linux",
+        "Windows Server",
+        "IIS",
+        "Plesk",
+        "Docker",
+        "Business Software",
+        "Software Integration",
+        "Reporting Systems",
+        "Workflow Automation"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rhmaeda.dev/#website",
+      "url": "https://rhmaeda.dev/",
+      "name": "Rafael Maeda",
+      "alternateName": "Rafael Maeda Developer Portfolio",
+      "publisher": {
+        "@id": "https://rhmaeda.dev/#person"
+      },
+      "inLanguage": [
+        "en-IE",
+        "pt-BR"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://rhmaeda.dev/pt/#webpage",
+      "url": "https://rhmaeda.dev/pt/",
+      "name": "Rafael Maeda | Desenvolvedor PHP, Laravel e Backend",
+      "description": "Desenvolvedor PHP full-stack e backend na Irlanda com experiência em Laravel, Symfony, MySQL, APIs REST, sistemas de negócio, integrações, relatórios e automação.",
+      "isPartOf": {
+        "@id": "https://rhmaeda.dev/#website"
+      },
+      "about": {
+        "@id": "https://rhmaeda.dev/#person"
+      },
+      "mainEntity": {
+        "@id": "https://rhmaeda.dev/#person"
+      },
+      "inLanguage": "pt-BR"
+    }
+  ]
+}</script></head>
+<body>
+<header class="nav">
+<div class="container nav-inner">
+<a aria-label="Rafael Maeda home" class="brand" href="#top">
+<span class="brand-mark">RM</span>
+<span>
+          Rafael Maeda
+          <small data-en="PHP Full-Stack / Backend Developer" data-pt="Desenvolvedor PHP Full-Stack / Backend">Desenvolvedor PHP Full-Stack / Backend</small>
+</span>
+</a>
+<div class="nav-right">
+<nav aria-label="Main navigation" class="nav-links" id="navLinks">
+<a data-en="Services" data-pt="Serviços" href="#services">Serviços</a>
+<a data-en="How I work" data-pt="Como trabalho" href="#workflow">Como trabalho</a>
+<a data-en="Projects" data-pt="Projetos" href="#projects">Projetos</a>
+<a data-en="Stack" data-pt="Tecnologias" href="#stack">Tecnologias</a>
+<a data-en="About" data-pt="Sobre" href="#about">Sobre</a>
+<a data-en="Contact" data-pt="Contato" href="#contact">Contato</a>
+</nav>
+<div aria-label="Language selector" class="lang-switch"><a href="/" hreflang="en-IE">EN</a><span>/</span><a class="active" href="/pt/" hreflang="pt-BR">PT</a></div>
+<button aria-expanded="false" aria-label="Open menu" class="menu-toggle" id="menuToggle">
+          ☰
+        </button>
+</div>
+</div>
+</header>
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+<div class="container hero-grid">
+<div class="reveal">
+<div class="eyebrow" data-en="PHP Developer · Laravel · Symfony · Ireland" data-pt="Desenvolvedor PHP · Laravel · Symfony · Irlanda">Desenvolvedor PHP · Laravel · Symfony · Irlanda</div>
+<h1 data-en="PHP Full-Stack &amp; Backend Developer in Ireland." data-pt="Desenvolvedor PHP Full-Stack &amp; Backend na Irlanda.">Desenvolvedor PHP Full-Stack &amp; Backend na Irlanda.</h1>
+<p class="hero-copy" data-en="I build and maintain PHP business applications, Laravel and Symfony backends, REST APIs, MySQL/MariaDB systems, reporting tools and integrations — with a practical focus on reliability, maintainability and real business operations." data-pt="Desenvolvo e mantenho aplicações PHP para negócios, backends com Laravel e Symfony, APIs REST, sistemas MySQL/MariaDB, ferramentas de relatórios e integrações — com foco prático em confiabilidade, manutenção e operações reais.">Desenvolvo e mantenho aplicações PHP para negócios, backends com Laravel e Symfony, APIs REST, sistemas MySQL/MariaDB, ferramentas de relatórios e integrações — com foco prático em confiabilidade, manutenção e operações reais.</p>
+<div class="hero-tags">
+<span class="chip">PHP 8+</span>
+<span class="chip">Laravel</span>
+<span class="chip">Symfony</span>
+<span class="chip">MySQL / MariaDB</span>
+<span class="chip">REST APIs</span>
+<span class="chip">JavaScript</span>
+</div>
+<div class="actions">
+<a class="btn btn-primary" href="#projects">
+<span data-en="View selected work" data-pt="Ver projetos">Ver projetos</span>
+<span>→</span>
+</a>
+<a class="btn btn-secondary" href="https://github.com/rhmaeda" rel="me noopener" target="_blank">
+              GitHub ↗
+            </a>
+</div>
+</div>
+<div class="hero-visual reveal">
+<div class="system-card">
+<div class="system-head">
+<strong data-en="Business system / production" data-pt="Sistema de negócio / produção">Sistema de negócio / produção</strong>
+<span class="status" data-en="Stable" data-pt="Estável">Estável</span>
+</div>
+<div class="system-grid">
+<div class="metric">
+<small data-en="Backend" data-pt="Backend">Backend</small>
+<strong>PHP / SQL</strong>
+</div>
+<div class="metric">
+<small data-en="Data" data-pt="Dados">Dados</small>
+<strong>Reports &amp; APIs</strong>
+</div>
+<div class="metric">
+<small data-en="Operations" data-pt="Operações">Operações</small>
+<strong>Workflow logic</strong>
+</div>
+<div class="metric">
+<small data-en="Delivery" data-pt="Entrega">Entrega</small>
+<strong>Git / VPS / IIS</strong>
+</div>
+</div>
+<div class="system-footer">
+<div><b>$</b> analyse → implement → test → deploy</div>
+<div><b>$</b> keep business running while improving the system</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FOCUS -->
+<section>
+<div class="container">
+<div class="section-head reveal">
+<div class="section-label" data-en="Focus" data-pt="Foco">Foco</div>
+<h2 data-en="Software built around real business processes." data-pt="Software construído em torno de processos reais de negócio.">Software construído em torno de processos reais de negócio.</h2>
+</div>
+<div class="focus-strip reveal">
+<article class="focus-item">
+<span>01</span>
+<h3 data-en="Backend &amp; business logic" data-pt="Backend e regras de negócio">Backend e regras de negócio</h3>
+<p data-en="PHP applications, data models, permissions, workflows, calculations and production-critical logic." data-pt="Aplicações PHP, modelos de dados, permissões, workflows, cálculos e lógica crítica de produção.">Aplicações PHP, modelos de dados, permissões, workflows, cálculos e lógica crítica de produção.</p>
+</article>
+<article class="focus-item">
+<span>02</span>
+<h3 data-en="Existing systems" data-pt="Sistemas existentes">Sistemas existentes</h3>
+<p data-en="Understanding mature codebases, fixing production issues and improving them without unnecessary rewrites." data-pt="Entendimento de codebases maduras, correção de problemas em produção e evolução sem reescritas desnecessárias.">Entendimento de codebases maduras, correção de problemas em produção e evolução sem reescritas desnecessárias.</p>
+</article>
+<article class="focus-item">
+<span>03</span>
+<h3 data-en="Data, reports &amp; automation" data-pt="Dados, relatórios e automação">Dados, relatórios e automação</h3>
+<p data-en="Operational reporting, Excel exports, APIs, scheduled processes and tools that reduce repetitive work." data-pt="Relatórios operacionais, exportações Excel, APIs, processos agendados e ferramentas que reduzem trabalho repetitivo.">Relatórios operacionais, exportações Excel, APIs, processos agendados e ferramentas que reduzem trabalho repetitivo.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- WHERE I FIT -->
+<section class="dark-section">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-label" data-en="Where I fit best" data-pt="Onde agrego mais valor">Onde agrego mais valor</div>
+<h2 data-en="Projects where software is part of the daily operation." data-pt="Projetos em que o software faz parte da operação diária.">Projetos em que o software faz parte da operação diária.</h2>
+<p data-en="I am most useful when the application has real users, real data and business rules that need to keep working while the product evolves." data-pt="Sou mais útil quando a aplicação tem usuários reais, dados reais e regras de negócio que precisam continuar funcionando enquanto o produto evolui.">Sou mais útil quando a aplicação tem usuários reais, dados reais e regras de negócio que precisam continuar funcionando enquanto o produto evolui.</p>
+</div>
+<div class="dark-grid">
+<article class="dark-card reveal">
+<div class="num">01 / EXISTING PHP SYSTEMS</div>
+<h3 data-en="Maintain and evolve mature applications" data-pt="Manter e evoluir aplicações maduras">Manter e evoluir aplicações maduras</h3>
+<p data-en="Work safely inside existing architecture, preserve business-critical behaviour and improve the code incrementally." data-pt="Trabalhar com segurança em arquiteturas existentes, preservar comportamentos críticos e melhorar o código de forma incremental.">Trabalhar com segurança em arquiteturas existentes, preservar comportamentos críticos e melhorar o código de forma incremental.</p>
+</article>
+<article class="dark-card reveal">
+<div class="num">02 / INTERNAL PLATFORMS</div>
+<h3 data-en="Operational and management systems" data-pt="Sistemas operacionais e de gestão">Sistemas operacionais e de gestão</h3>
+<p data-en="Dashboards, workshop operations, stock, sales, permissions, parts, customer data and internal workflows." data-pt="Dashboards, operações de oficina, estoque, vendas, permissões, peças, dados de clientes e fluxos internos.">Dashboards, operações de oficina, estoque, vendas, permissões, peças, dados de clientes e fluxos internos.</p>
+</article>
+<article class="dark-card reveal">
+<div class="num">03 / INTEGRATIONS</div>
+<h3 data-en="APIs and data flows" data-pt="APIs e fluxos de dados">APIs e fluxos de dados</h3>
+<p data-en="Connect systems, process external data and build reliable interfaces between applications." data-pt="Conectar sistemas, processar dados externos e criar interfaces confiáveis entre aplicações.">Conectar sistemas, processar dados externos e criar interfaces confiáveis entre aplicações.</p>
+</article>
+<article class="dark-card reveal">
+<div class="num">04 / AUTOMATION</div>
+<h3 data-en="Remove repetitive operational work" data-pt="Eliminar trabalho operacional repetitivo">Eliminar trabalho operacional repetitivo</h3>
+<p data-en="Scheduled jobs, imports, exports, scripts, browser tooling and practical automation around existing processes." data-pt="Tarefas agendadas, importações, exportações, scripts, ferramentas de navegador e automações práticas.">Tarefas agendadas, importações, exportações, scripts, ferramentas de navegador e automações práticas.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- SERVICES -->
+<section id="services">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-label" data-en="Services" data-pt="Serviços">Serviços</div>
+<h2 data-en="How I can contribute." data-pt="Como posso contribuir.">Como posso contribuir.</h2>
+<p data-en="From a specific backend feature to long-term development of an internal business platform." data-pt="Desde uma funcionalidade específica de backend até a evolução contínua de uma plataforma interna.">Desde uma funcionalidade específica de backend até a evolução contínua de uma plataforma interna.</p>
+</div>
+<div class="services-grid">
+<article class="service-card reveal">
+<div class="service-icon">&lt;/&gt;</div>
+<h3 data-en="PHP application development" data-pt="Desenvolvimento de aplicações PHP">Desenvolvimento de aplicações PHP</h3>
+<p data-en="Backend features, domain rules, forms, authentication, permissions and production workflows." data-pt="Funcionalidades de backend, regras de domínio, formulários, autenticação, permissões e workflows.">Funcionalidades de backend, regras de domínio, formulários, autenticação, permissões e workflows.</p>
+</article>
+<article class="service-card reveal">
+<div class="service-icon">API</div>
+<h3 data-en="REST APIs &amp; integrations" data-pt="APIs REST e integrações">APIs REST e integrações</h3>
+<p data-en="Endpoints, external services, JSON/XML data flows and integration logic between systems." data-pt="Endpoints, serviços externos, fluxos JSON/XML e lógica de integração entre sistemas.">Endpoints, serviços externos, fluxos JSON/XML e lógica de integração entre sistemas.</p>
+</article>
+<article class="service-card reveal">
+<div class="service-icon">SQL</div>
+<h3 data-en="Database &amp; reporting" data-pt="Banco de dados e relatórios">Banco de dados e relatórios</h3>
+<p data-en="SQL, operational reports, KPIs, large exports, Excel generation and practical data analysis." data-pt="SQL, relatórios operacionais, KPIs, grandes exportações, geração de Excel e análise prática de dados.">SQL, relatórios operacionais, KPIs, grandes exportações, geração de Excel e análise prática de dados.</p>
+</article>
+<article class="service-card reveal">
+<div class="service-icon">↺</div>
+<h3 data-en="Legacy system improvement" data-pt="Evolução de sistemas legados">Evolução de sistemas legados</h3>
+<p data-en="Debug existing code, reduce risk and modernize incrementally instead of rewriting everything." data-pt="Depurar código existente, reduzir riscos e modernizar de forma incremental em vez de reescrever tudo.">Depurar código existente, reduzir riscos e modernizar de forma incremental em vez de reescrever tudo.</p>
+</article>
+<article class="service-card reveal">
+<div class="service-icon">⚙</div>
+<h3 data-en="Automation &amp; internal tooling" data-pt="Automação e ferramentas internas">Automação e ferramentas internas</h3>
+<p data-en="Scripts, cron-style tasks, browser extensions and tools that simplify repetitive operational work." data-pt="Scripts, tarefas agendadas, extensões de navegador e ferramentas que simplificam trabalho repetitivo.">Scripts, tarefas agendadas, extensões de navegador e ferramentas que simplificam trabalho repetitivo.</p>
+</article>
+<article class="service-card reveal">
+<div class="service-icon">OPS</div>
+<h3 data-en="Deployment &amp; infrastructure support" data-pt="Deploy e suporte de infraestrutura">Deploy e suporte de infraestrutura</h3>
+<p data-en="VPS environments, Linux, Windows Server, IIS, Plesk, Docker and practical deployment troubleshooting." data-pt="Ambientes VPS, Linux, Windows Server, IIS, Plesk, Docker e resolução prática de problemas de deploy.">Ambientes VPS, Linux, Windows Server, IIS, Plesk, Docker e resolução prática de problemas de deploy.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- WORKFLOW -->
+<section id="workflow">
+<div class="container workflow">
+<div class="workflow-intro section-head reveal">
+<div class="section-label" data-en="How I work" data-pt="Como trabalho">Como trabalho</div>
+<h2 data-en="Understand first. Change carefully. Improve continuously." data-pt="Entender primeiro. Alterar com cuidado. Melhorar continuamente.">Entender primeiro. Alterar com cuidado. Melhorar continuamente.</h2>
+<p data-en="I prefer practical improvements that respect the current system, its users and the business behind it." data-pt="Prefiro melhorias práticas que respeitem o sistema atual, seus usuários e o negócio por trás dele.">Prefiro melhorias práticas que respeitem o sistema atual, seus usuários e o negócio por trás dele.</p>
+</div>
+<div class="steps">
+<div class="step reveal">
+<div class="step-no">01</div>
+<div>
+<h3 data-en="Understand the real requirement" data-pt="Entender a necessidade real">Entender a necessidade real</h3>
+<p data-en="Start with the business process, current behaviour, data and operational constraints." data-pt="Começar pelo processo de negócio, comportamento atual, dados e restrições operacionais.">Começar pelo processo de negócio, comportamento atual, dados e restrições operacionais.</p>
+</div>
+</div>
+<div class="step reveal">
+<div class="step-no">02</div>
+<div>
+<h3 data-en="Trace the system impact" data-pt="Mapear o impacto no sistema">Mapear o impacto no sistema</h3>
+<p data-en="Identify affected code, database structures, permissions, integrations and edge cases before changing production logic." data-pt="Identificar código afetado, estruturas do banco, permissões, integrações e casos extremos antes de alterar lógica de produção.">Identificar código afetado, estruturas do banco, permissões, integrações e casos extremos antes de alterar lógica de produção.</p>
+</div>
+</div>
+<div class="step reveal">
+<div class="step-no">03</div>
+<div>
+<h3 data-en="Implement the smallest reliable change" data-pt="Implementar a menor mudança confiável">Implementar a menor mudança confiável</h3>
+<p data-en="Avoid unnecessary rewrites and keep changes understandable, testable and easy to support." data-pt="Evitar reescritas desnecessárias e manter as mudanças compreensíveis, testáveis e fáceis de manter.">Evitar reescritas desnecessárias e manter as mudanças compreensíveis, testáveis e fáceis de manter.</p>
+</div>
+</div>
+<div class="step reveal">
+<div class="step-no">04</div>
+<div>
+<h3 data-en="Verify with real operational scenarios" data-pt="Validar com cenários reais de operação">Validar com cenários reais de operação</h3>
+<p data-en="Check the result against the workflow users actually follow — not only the happy path." data-pt="Validar o resultado contra o fluxo que os usuários realmente seguem — não apenas o cenário ideal.">Validar o resultado contra o fluxo que os usuários realmente seguem — não apenas o cenário ideal.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PROJECTS -->
+<section id="projects">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-label" data-en="Selected work" data-pt="Projetos selecionados">Projetos selecionados</div>
+<h2 data-en="Systems and problems I have worked on." data-pt="Sistemas e problemas em que trabalhei.">Sistemas e problemas em que trabalhei.</h2>
+<p data-en="A representative selection focused on business software, reporting, automation and operational tooling." data-pt="Uma seleção representativa com foco em software de negócio, relatórios, automação e ferramentas operacionais.">Uma seleção representativa com foco em software de negócio, relatórios, automação e ferramentas operacionais.</p>
+</div>
+<div class="project-list">
+<article class="project reveal">
+<div class="project-type" data-en="Dealer management" data-pt="Gestão de concessionária">Gestão de concessionária</div>
+<div>
+<h3 data-en="Dealership operations platform" data-pt="Plataforma de operações para concessionária">Plataforma de operações para concessionária</h3>
+<p data-en="Development across vehicle stock, sales approval, job cards, workshop scheduling, technician timers, parts, costs, permissions and reporting." data-pt="Desenvolvimento em estoque de veículos, aprovação de vendas, job cards, agenda da oficina, timers de técnicos, peças, custos, permissões e relatórios.">Desenvolvimento em estoque de veículos, aprovação de vendas, job cards, agenda da oficina, timers de técnicos, peças, custos, permissões e relatórios.</p>
+</div>
+<div class="project-tech">
+<span>PHP</span><span>MySQL</span><span>jQuery</span><span>Business Logic</span>
+</div>
+</article>
+<article class="project reveal">
+<div class="project-type" data-en="Reporting" data-pt="Relatórios">Relatórios</div>
+<div>
+<h3 data-en="Executive workshop reporting" data-pt="Relatórios executivos de oficina">Relatórios executivos de oficina</h3>
+<p data-en="KPIs for workshop hours, technician availability, hours sold, efficiency, productivity, utilisation, costs and structured Excel exports." data-pt="KPIs para horas da oficina, disponibilidade de técnicos, horas vendidas, eficiência, produtividade, utilização, custos e exportações estruturadas para Excel.">KPIs para horas da oficina, disponibilidade de técnicos, horas vendidas, eficiência, produtividade, utilização, custos e exportações estruturadas para Excel.</p>
+</div>
+<div class="project-tech">
+<span>PhpSpreadsheet</span><span>SQL</span><span>Excel</span><span>KPIs</span>
+</div>
+</article>
+<article class="project reveal">
+<div class="project-type" data-en="Chrome extension" data-pt="Extensão Chrome">Extensão Chrome</div>
+<div>
+<h3>YouTube Fresh Home</h3>
+<p data-en="Browser extension that tracks previously seen YouTube homepage recommendations and helps surface fresher content on subsequent visits." data-pt="Extensão de navegador que registra recomendações já vistas na página inicial do YouTube e ajuda a exibir conteúdo mais novo em visitas futuras.">Extensão de navegador que registra recomendações já vistas na página inicial do YouTube e ajuda a exibir conteúdo mais novo em visitas futuras.</p>
+</div>
+<div class="project-tech">
+<span>JavaScript</span><span>Chrome APIs</span><span>Local Storage</span><span>UX</span>
+</div>
+</article>
+<article class="project reveal">
+<div class="project-type" data-en="Device management" data-pt="Gestão de dispositivos">Gestão de dispositivos</div>
+<div>
+<h3 data-en="Android kiosk / MDM deployment" data-pt="Implantação Android kiosk / MDM">Implantação Android kiosk / MDM</h3>
+<p data-en="Managed tablet setup with kiosk restrictions, controlled applications, web access policies and self-hosted device-management infrastructure." data-pt="Configuração de tablets gerenciados com restrições de kiosk, aplicativos controlados, políticas de acesso web e infraestrutura MDM self-hosted.">Configuração de tablets gerenciados com restrições de kiosk, aplicativos controlados, políticas de acesso web e infraestrutura MDM self-hosted.</p>
+</div>
+<div class="project-tech">
+<span>Android</span><span>MDM</span><span>Docker</span><span>Self-hosted</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- STACK -->
+<section id="stack">
+<div class="container stack-layout">
+<div class="section-head reveal">
+<div class="section-label" data-en="Technology" data-pt="Tecnologias">Tecnologias</div>
+<h2 data-en="A pragmatic stack for business applications." data-pt="Uma stack pragmática para aplicações de negócio.">Uma stack pragmática para aplicações de negócio.</h2>
+<p data-en="I use technologies that fit the system and the team, with a strong focus on PHP and database-driven web applications." data-pt="Uso tecnologias adequadas ao sistema e à equipe, com forte foco em PHP e aplicações web orientadas a banco de dados.">Uso tecnologias adequadas ao sistema e à equipe, com forte foco em PHP e aplicações web orientadas a banco de dados.</p>
+</div>
+<div class="stack-panel reveal">
+<div class="stack-row">
+<strong>Backend</strong>
+<div>PHP 8+, Laravel, Symfony, Laminas / Zend Framework, CodeIgniter, Yii2</div>
+</div>
+<div class="stack-row">
+<strong>Database</strong>
+<div>MySQL, MariaDB, SQL queries, data migrations, reporting and large exports</div>
+</div>
+<div class="stack-row">
+<strong>Frontend</strong>
+<div>HTML, CSS, JavaScript, jQuery, Bootstrap, Vue, Chart.js</div>
+</div>
+<div class="stack-row">
+<strong>Data &amp; files</strong>
+<div>PhpSpreadsheet, CSV / Excel imports and exports, JSON, XML</div>
+</div>
+<div class="stack-row">
+<strong>Infrastructure</strong>
+<div>Linux, Windows Server, IIS, Plesk, Docker, VPS, Nginx / Apache</div>
+</div>
+<div class="stack-row">
+<strong>Workflow</strong>
+<div>Git, debugging, production support, deployment, automation and AI-assisted development</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+<div class="section-head reveal">
+<div class="section-label" data-en="About" data-pt="Sobre">Sobre</div>
+<h2 data-en="Developer mindset, operational perspective." data-pt="Mentalidade de desenvolvedor, visão operacional.">Mentalidade de desenvolvedor, visão operacional.</h2>
+</div>
+<div class="about-grid">
+<article class="about-card reveal">
+<h3 data-en="What I bring" data-pt="O que eu trago">O que eu trago</h3>
+<p data-en="More than four years of PHP development experience, with hands-on work in full-stack and backend development, internal business systems, troubleshooting and production support." data-pt="Mais de quatro anos de experiência com desenvolvimento PHP, atuando de forma prática em full-stack e backend, sistemas internos de negócio, troubleshooting e suporte de produção.">Mais de quatro anos de experiência com desenvolvimento PHP, atuando de forma prática em full-stack e backend, sistemas internos de negócio, troubleshooting e suporte de produção.</p>
+<div class="facts">
+<div class="fact">
+<strong>4+ years</strong>
+<small data-en="PHP development" data-pt="desenvolvimento PHP">desenvolvimento PHP</small>
+</div>
+<div class="fact">
+<strong>Backend</strong>
+<small data-en="business systems focus" data-pt="foco em sistemas de negócio">foco em sistemas de negócio</small>
+</div>
+<div class="fact">
+<strong>EN / PT</strong>
+<small data-en="professional communication" data-pt="comunicação profissional">comunicação profissional</small>
+</div>
+<div class="fact">
+<strong>Ireland</strong>
+<small data-en="based in Ireland" data-pt="residindo na Irlanda">residindo na Irlanda</small>
+</div>
+</div>
+</article>
+<article class="about-card reveal">
+<h3 data-en="What matters to me in software" data-pt="O que valorizo em software">O que valorizo em software</h3>
+<p data-en="Clear business logic, understandable code, stable behaviour and solutions that make the user's work easier. I am comfortable investigating unfamiliar systems and working through problems across application code, database, hosting and infrastructure." data-pt="Regras de negócio claras, código compreensível, comportamento estável e soluções que facilitem o trabalho do usuário. Tenho facilidade para investigar sistemas desconhecidos e resolver problemas entre aplicação, banco de dados, hospedagem e infraestrutura.">Regras de negócio claras, código compreensível, comportamento estável e soluções que facilitem o trabalho do usuário. Tenho facilidade para investigar sistemas desconhecidos e resolver problemas entre aplicação, banco de dados, hospedagem e infraestrutura.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container">
+<div class="contact-card reveal">
+<div class="section-label" data-en="Contact" data-pt="Contato" style="color: rgba(255,255,255,.72)">Contato</div>
+<h2 data-en="Need a developer who can understand the system behind the ticket?" data-pt="Precisa de um desenvolvedor que entenda o sistema por trás do ticket?">Precisa de um desenvolvedor que entenda o sistema por trás do ticket?</h2>
+<p data-en="You can find my public work and contact details through GitHub. This site is also available at rhmaeda.dev." data-pt="Você pode encontrar meus trabalhos públicos e formas de contato pelo GitHub. Este site também está disponível em rhmaeda.dev.">Você pode encontrar meus trabalhos públicos e formas de contato pelo GitHub. Este site também está disponível em rhmaeda.dev.</p>
+<div class="actions">
+<a class="btn btn-primary" href="https://github.com/rhmaeda" rel="me noopener" target="_blank">
+<span data-en="Open GitHub" data-pt="Abrir GitHub">Abrir GitHub</span> ↗
+            </a>
+<a class="btn btn-secondary" href="#top">
+<span data-en="Back to top" data-pt="Voltar ao topo">Voltar ao topo</span> ↑
+            </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container footer-inner">
+<div>© <span id="year"></span> Rafael Maeda</div>
+<div>rhmaeda.dev · PHP Full-Stack / Backend Developer</div>
+</div>
+</footer>
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.textContent = open ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+</script>
+</body>
+</html>
